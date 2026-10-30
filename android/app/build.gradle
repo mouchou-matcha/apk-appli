@@ -1,0 +1,33 @@
+plugins {
+    id 'com.android.application'
+}
+
+// L'APK sort non signé : la clé de signature n'est pas dans le dépôt, l'APK est signé à part
+// (empreinte publiée dans public/.well-known/assetlinks.json).
+android {
+    namespace 'app.vercel.marie_ai.twa'
+    compileSdk 34
+
+    defaultConfig {
+        applicationId 'app.vercel.marie_ai.twa'
+        minSdk 24
+        targetSdk 34
+        versionCode 1
+        versionName '1.0'
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+}
+
+dependencies {
+    implementation 'com.google.androidbrowserhelper:androidbrowserhelper:2.5.0'
+}
